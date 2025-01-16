@@ -2,11 +2,11 @@ import { Link } from 'expo-router';
 import React from 'react'
 import { Text, View } from 'react-native';
 
-const Register = () => {
+const Login = () => {
     return (
-        <View><Text>Register</Text>
-        <Link href={"/login"}>Ir para Login</Link></View>
+        <View><Text>Login</Text>
+        <Link href={"/register"}>Ir para Register</Link></View>
     )
 }
 
-export default Register;
+export default Login;
