@@ -1,9 +1,11 @@
-import { Text, View } from 'react-native'
+import { Text, View } from "react-native";
 
 const Home = () => {
   return (
-    <View><Text>Eaii</Text></View>
-  )
-}
+    <View>
+      <Text>Eaii</Text>
+    </View>
+  );
+};
 
 export default Home;

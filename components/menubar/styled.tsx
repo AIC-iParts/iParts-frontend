@@ -11,6 +11,14 @@ export const Container = styled.View`
 
 `
 
-const StyledView = styled.View`
-  background-color: 'black';
+export const Icon = styled.Text`
+  color: '#FAFAFB';
+  font-size: 24;
+  margin-right: 10;
+`
+
+export const Title = styled.Text`
+  color: 'white';
+  font-size: 18;
+  font-weight: 'bold';
 `
