@@ -1,14 +1,15 @@
 import { DrawerHeaderProps } from "@react-navigation/drawer";
 import { TouchableOpacity, View, Text, StyleSheet } from "react-native";
+import { Container } from "./styled";
 
 export default function MenuBar({ navigation }: DrawerHeaderProps) {
     return (
-        <View style={styles.headerContainer}>
+        <Container>
             <TouchableOpacity onPress={navigation.openDrawer}>
                 <Text style={styles.menuText}>☰</Text>
             </TouchableOpacity>
             <Text style={styles.title}>Meu App</Text>
-        </View>
+        </Container>
     );
 }
 

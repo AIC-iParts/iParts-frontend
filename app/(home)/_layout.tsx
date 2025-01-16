@@ -1,6 +1,6 @@
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Drawer } from 'expo-router/drawer';
-import MenuBar from '@/components/menubar/menubar';
+import MenuBar from '@/components/menubar';
 
 export default function HomeLayout() {
     return (
