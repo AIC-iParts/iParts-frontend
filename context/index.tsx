@@ -14,9 +14,6 @@ interface User {
   logoutPersist: () => void;
 }
 
-// Deletar um valor
-await SecureStore.deleteItemAsync("chave");
-
 const AppContext = createContext<User>({
   user: "",
   token: "",
