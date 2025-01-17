@@ -2,12 +2,13 @@ import useAppContext from "@/context";
 import { Link } from "expo-router";
 import { Text, View } from "react-native";
 
-export default function Index() {
+export default function Login() {
+  const { loginPersist } = useAppContext();
   return (
     <View>
-      <Text></Text>
+      <Text>Login</Text>
       <Link href={"/register"}>Ir para Register</Link>
-      <Link href={"/login"}>Ir para Login</Link>
+      <Link href={"/(auth)"}>Voltar</Link>
     </View>
   );
 }
