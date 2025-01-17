@@ -1,4 +1,11 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
+import * as SecureStore from "expo-secure-store";
 
 interface User {
   user: string;
@@ -6,6 +13,9 @@ interface User {
   loginPersist: (user: string, token: string) => void;
   logoutPersist: () => void;
 }
+
+// Deletar um valor
+await SecureStore.deleteItemAsync("chave");
 
 const AppContext = createContext<User>({
   user: "",
@@ -18,14 +28,18 @@ export function ContextProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<string>("");
   const [token, setToken] = useState<string>("");
 
-  const loginPersist = (loginUser: string, loginToken: string) => {
+  const loginPersist = async (loginUser: string, loginToken: string) => {
     setUser(loginUser);
     setToken(loginToken);
+    await SecureStore.setItemAsync("user", loginUser);
+    await SecureStore.setItemAsync("token", loginToken);
   };
 
-  const logoutPersist = () => {
+  const logoutPersist = async () => {
     setUser("");
     setToken("");
+    await SecureStore.deleteItemAsync("user");
+    await SecureStore.deleteItemAsync("token");
   };
 
   return (
