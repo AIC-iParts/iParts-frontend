@@ -4,14 +4,14 @@ import { Stack } from "expo-router";
 export default function RootLayout() {
   const { token } = useAppContext();
   return (
-    <Stack screenOptions={{ headerShown: false }}>
-      <ContextProvider>
+    <ContextProvider>
+      <Stack screenOptions={{ headerShown: false }}>
         {token ? (
           <Stack.Screen name="(home)" />
         ) : (
           <Stack.Screen name="(auth)" />
         )}
-      </ContextProvider>
-    </Stack>
+      </Stack>
+    </ContextProvider>
   );
 }
