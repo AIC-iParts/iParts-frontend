@@ -1,8 +1,9 @@
+import Colors from "@/constants/colors";
 import styled from "styled-components/native";
 
 export const Container = styled.View`
   height: 60;
-  background-color: "#000E22";
+  background-color: ${() => Colors.background};
   flex-direction: "row";
   align-items: "center";
   padding-left: 7;
@@ -10,13 +11,13 @@ export const Container = styled.View`
 `;
 
 export const Icon = styled.Text`
-  color: "#FAFAFB";
+  color: ${() => Colors.white};
   font-size: 24;
   margin-right: 10;
 `;
 
 export const Title = styled.Text`
-  color: "white";
+  color: ${() => Colors.white};
   font-size: 18;
   font-weight: "bold";
 `;
