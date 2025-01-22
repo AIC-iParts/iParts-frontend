@@ -7,7 +7,9 @@ export default function ButtonScreenDrawer(props: {
 }) {
   return (
     <Container>
-      <Title onFocus={props?.focused}>{props?.title}</Title>
+      <Title onFocus={props?.focused} isLogout={props?.title == "Logout"}>
+        {props?.title}
+      </Title>
     </Container>
   );
 }

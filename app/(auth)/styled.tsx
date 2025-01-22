@@ -22,7 +22,6 @@ export const Container = styled.View`
   width: ${wp("100%")}px;
   height: ${hp("100%")}px;
   background-color: ${() => Colors.background};
-  overflow: hidden;
 `;
 
 export const Logo = styled.Image`

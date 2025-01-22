@@ -4,7 +4,7 @@ import styled from "styled-components/native";
 
 export const Container = styled.View`
   height: ${hp("8%")}px;
-  background-color: ${() => Colors.background};
+  background-color: ${() => Colors.menubar};
   flex-direction: row;
   align-items: center;
   justify-content: space-between;

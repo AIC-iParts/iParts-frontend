@@ -1,6 +1,7 @@
 const Colors = {
   background: "#001534",
   white: "#FAFAFB",
+  menubar: "#000E22",
   buttons: "#002254",
   cards: "#002864",
   black: "#000000",

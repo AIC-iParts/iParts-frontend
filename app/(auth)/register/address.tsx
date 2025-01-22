@@ -12,6 +12,7 @@ import {
 } from "../styled";
 import Colors from "@/constants/colors";
 import { useState } from "react";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 export default function RegisterAddress() {
   const router = useRouter();
@@ -89,7 +90,10 @@ export default function RegisterAddress() {
       />
       <Section flex={1}>
         <Button dark={true} onPressOut={handleNextPage}>
-          <ButtonText>Próximo</ButtonText>
+          <ButtonText>
+            Próximo{" "}
+            <FontAwesome name="arrow-right" size={10} color={Colors.white} />
+          </ButtonText>
         </Button>
       </Section>
     </Container>
