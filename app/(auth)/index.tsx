@@ -1,9 +1,18 @@
-import useAppContext from "@/context";
-import { Link } from "expo-router";
-import { Image, Text, View } from "react-native";
+import { Link, useRouter } from "expo-router";
+import { View } from "react-native";
 import { Button, ButtonText, Container, Logo, Title } from "./styled";
+import useAppContext from "@/context";
+import { useEffect } from "react";
 
 export default function Index() {
+  const { token } = useAppContext();
+  const router = useRouter();
+  useEffect(() => {
+    console.log(`${token} < token in index`);
+    if (token) {
+      router.replace("/(home)");
+    }
+  });
   return (
     <Container>
       <View style={{ display: "flex", alignItems: "center" }}>
@@ -18,15 +27,11 @@ export default function Index() {
           marginTop: "20%",
         }}
       >
-        <Button dark={true}>
-          <ButtonText>
-            <Link href={"/login"}>Entrar</Link>
-          </ButtonText>
+        <Button dark={true} onPressOut={() => router.push("/(auth)/login")}>
+          <ButtonText>Entrar</ButtonText>
         </Button>
-        <Button>
-          <ButtonText dark={true}>
-            <Link href={"/register"}>Cadastrar-se</Link>
-          </ButtonText>
+        <Button onPressOut={() => router.push("/(auth)/register")}>
+          <ButtonText dark={true}>Cadastrar-se</ButtonText>
         </Button>
       </View>
     </Container>

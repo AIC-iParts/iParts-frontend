@@ -24,9 +24,9 @@ export default function Login() {
     try {
       console.log("Debug 1");
       const request = await LoginRequest(cnpj, password);
-      if (request?.token) {
+      if (request?.accessToken) {
         console.log("Debug 2");
-        loginPersist(request?.user, request?.token);
+        loginPersist(request?.shop?.name, request?.accessToken);
         router.replace("/(home)");
       } else {
         console.log("Debug 3");

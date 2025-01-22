@@ -3,10 +3,14 @@ import api from "@/service/api";
 
 export const RegisterRequest = async (data: RegisterData) => {
   try {
+    console.log({
+      ...data,
+      complement: "TESTE",
+      delivery_value: 0,
+    });
     const request = await api.post("/shop", {
       ...data,
-      id_city: 0,
-      complement: "string",
+      complement: "TESTE",
       delivery_value: 0,
     });
     console.log(request?.data);
@@ -14,6 +18,6 @@ export const RegisterRequest = async (data: RegisterData) => {
     console.log(request?.statusText);
     return request?.data;
   } catch (error: any) {
-    console.log(`Erro na requisição. Login Request. Erro:\n${error?.message}`);
+    console.log(`Erro na requisição. Login Request. Erro:\n${error}`);
   }
 };

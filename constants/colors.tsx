@@ -7,6 +7,7 @@ const Colors = {
   placeholder: "#0015347b",
   white40: "#fafafb67",
   red: "#900000",
+  bluelight: "#00D4FF",
 };
 
 export default Colors;

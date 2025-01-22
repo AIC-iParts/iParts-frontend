@@ -18,11 +18,13 @@ export interface RegisterData {
   cep?: string;
   street?: string;
   address_number?: string;
+  city_name?: string;
+  state_code?: string;
 }
 
 interface ContextType {
-  user: string;
-  token: string;
+  user: string | null;
+  token: string | null;
   registerData: RegisterData;
   loginPersist: (user: string, token: string) => void;
   logoutPersist: () => void;
@@ -39,8 +41,8 @@ const AppContext = createContext<ContextType>({
 });
 
 export function ContextProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<string>("");
-  const [token, setToken] = useState<string>("");
+  const [user, setUser] = useState<string | null>("");
+  const [token, setToken] = useState<string | null>("");
   const [registerData, setRegisterData] = useState<RegisterData>({});
 
   const loginPersist = async (loginUser: string, loginToken: string) => {
@@ -60,6 +62,19 @@ export function ContextProvider({ children }: { children: ReactNode }) {
   const updateRegisterData = (novosDados: Partial<RegisterData>) => {
     setRegisterData((prev) => ({ ...prev, ...novosDados }));
   };
+
+  const getTokenStorage = async () => {
+    const token_return = await SecureStore.getItem("token");
+    setToken(token_return);
+  };
+  const getUserStorage = async () => {
+    const user_return = await SecureStore.getItem("user");
+    setUser(user_return);
+  };
+
+  useEffect(() => {
+    getTokenStorage();
+  }, []);
 
   return (
     <AppContext.Provider

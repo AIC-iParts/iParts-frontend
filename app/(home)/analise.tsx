@@ -1,16 +1,16 @@
 import useAppContext from "@/context";
 import { Text, View } from "react-native";
 
-const Home = () => {
+const Analise = () => {
   const { user, token } = useAppContext();
   return (
     <View>
       <Text>
-        Eai {user} seu token é:
+        Analise {user} seu token é:
         {token}
       </Text>
     </View>
   );
 };
 
-export default Home;
+export default Analise;

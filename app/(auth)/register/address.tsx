@@ -19,8 +19,12 @@ export default function RegisterAddress() {
   const [cep, setCep] = useState<string>(
     registerData?.cep ? registerData.cep : ""
   );
-  const [cidade, setCidade] = useState<string>("");
-  const [estado, setEstado] = useState<string>("");
+  const [cidade, setCidade] = useState<string>(
+    registerData?.city_name ? registerData.city_name : ""
+  );
+  const [estado, setEstado] = useState<string>(
+    registerData?.state_code ? registerData.state_code : ""
+  );
   const [pais, setPais] = useState<string>("");
   const [rua, setRua] = useState<string>(
     registerData?.street ? registerData.street : ""
@@ -30,7 +34,13 @@ export default function RegisterAddress() {
   );
 
   const handleNextPage = () => {
-    updateRegisterData({ cep: cep, street: rua, address_number: numero });
+    updateRegisterData({
+      cep: cep,
+      street: rua,
+      address_number: numero,
+      city_name: cidade,
+      state_code: estado,
+    });
     router.push("/register/password");
   };
 

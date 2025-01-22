@@ -5,10 +5,10 @@ import { Container, Icon, Title } from "./styled";
 export default function MenuBar({ navigation }: DrawerHeaderProps) {
   return (
     <Container>
+      <Title>Meu App</Title>
       <TouchableOpacity onPress={navigation.openDrawer}>
         <Icon>☰</Icon>
       </TouchableOpacity>
-      <Title>Meu App</Title>
     </Container>
   );
 }
